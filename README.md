@@ -12,7 +12,7 @@ The output text file is optional. If not specified the contents of the screensho
 
 Screenshot:
 
-![AudioBlob](readme/example_screenshot.png)
+![Example Screenshot](readme/example_screenshot.png)
 
 Transcribed:
 ```
