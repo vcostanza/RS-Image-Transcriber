@@ -39,7 +39,7 @@ class Main {
                 return
             }
 
-            println("Scanning ${inFile.name} for text\n")
+            println("Scanning ${inFile.name} for text")
 
             // Load RS chat font
             val chars = FontChars("RuneScape-Plain-12.ttf", 16f)
@@ -50,6 +50,12 @@ class Main {
 
             // Get the lines of text from the list of characters
             val lines = assembler.assemble()
+
+            // No text found
+            if (lines.isEmpty()) {
+                println("No text found in $inPath")
+                return
+            }
 
             if (args.size > 1) {
                 // Write lines to file
@@ -64,6 +70,7 @@ class Main {
                 }
             } else {
                 // Print lines to console
+                println()
                 for (line in lines) println(line)
             }
         }
