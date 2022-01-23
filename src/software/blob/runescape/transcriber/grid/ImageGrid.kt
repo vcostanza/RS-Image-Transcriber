@@ -38,7 +38,12 @@ open class ImageGrid(image: BufferedImage, filter: ImageGridFilter) : BitGrid(im
         var first = 0
         var last = 0
         while (i < p.size) {
-            val on = filter.accept(p[i], p[i + 1], p[i + 2], if (c == 4) p[i + 3] else 255)
+            val on = when (c) {
+                1 -> filter.accept(p[i], p[i], p[i], 255)
+                3 -> filter.accept(p[i], p[i + 1], p[i + 2], 255)
+                4 -> filter.accept(p[i], p[i + 1], p[i + 2], p[i + 3])
+                else -> false
+            }
             if (on) {
                 if (first == 0) first = j
                 last = j
